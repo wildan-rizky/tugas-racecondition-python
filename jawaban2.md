@@ -1,0 +1,5 @@
+analisis mutex vs semaphore secara konseptual
+1. ketika buffer di rubah menjadi 3 maka outputnya akan menghasilkan angka acak karena thread dijalankan secara bersamaan oleh scheduler sistem operasi.
+2. perubahan blocking, pada kode tersebut terdapat "acquare()". Ketika thread memanggil acquare() tetapi nilai semaphore nya 0. Pada kondisi thread akan berhenti sementara sampai thread lain memanggil realease(). Blocking memastikan producer tidak menambah data saat buffer penuh dan consumer tidak memanggil data saat buffer kosong sehingga sinkronisasi program tetap terjaga.
+3. perbedaan mutex dan semaphore
+mutex ialah menjalakan thread secara berurutan untuk menghindari race  condition/thread menjalankan secara bersamaan tanpa sinkronisasi. Sedangkan semaphore thread tetap benar karena akses buffer sudah di kontrol, meskipun urutan output bisa berbeda akibat eksekusi thread yang berjalan secara bersamaan.
